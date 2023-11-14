@@ -63,16 +63,6 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 
 source $HOME/aliases.bash
-#alias ll='exa -la --group-directories-first'
-alias ls='lsd'
-alias ll='ls -l --group-directories-first'
-alias la='ls -a --group-directories-first'
-alias lla='ls -la --group-directories-first'
-# alias lt='ls -l --tree'
-lt() { lsd -al --tree --git -I'.git|node_modules|.mypy_cache|.pytest_cache|.venv' --color=always "$@" | less -R; }
-alias vim=nvim
-alias vi=nvim
-git-branch-cleanup() { git branch -D $(git branch -v | grep gone | tr -s ' ' | cut -f2 -d ' ') }
 
 #export PATH="$HOME/.cargo/bin:/usr/local/sbin:$HOME/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"

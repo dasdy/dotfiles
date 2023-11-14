@@ -10,6 +10,15 @@ alias k-pod='kubectl get pods | grep '
 alias gconf-set='gcloud config configurations activate'
 alias gconf-get='gcloud config configurations list'
 
+alias ls='lsd'
+alias ll='ls -l --group-directories-first'
+alias la='ls -a --group-directories-first'
+alias lla='ls -la --group-directories-first'
+# alias lt='ls -l --tree'
+lt() { lsd -al --tree --git -I'.git|node_modules|.mypy_cache|.pytest_cache|.venv' --color=always "$@" | less -R; }
+alias vim=nvim
+alias vi=nvim
+git-branch-cleanup() { git branch -D $(git branch -v | grep gone | tr -s ' ' | cut -f2 -d ' ') }
 
 function dbuild-push() {
     dbuild-ssh -t "$1" . "${@:2}"
