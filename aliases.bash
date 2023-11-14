@@ -1,17 +1,5 @@
-alias dbuild-ssh='docker build --build-arg SSH_PRIVATE_KEY="$(cat ~/.ssh/id_rsa)"'
-alias dcbuild-ssh='docker-compose build --build-arg SSH_PRIVATE_KEY="$(cat ~/.ssh/id_rsa)"'
 alias docker-stop-all='docker stop $(docker ps -aq)'
-alias brewup='brew update ; brew upgrade; brew cleanup ; brew doctor'
 
-alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
-alias vcode='/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'
-alias houndci-check='flake8-diff --flake8-options --config .flake8.ini'
-
-alias beta-db-ssh-tunel='gcloud compute ssh beta-web-1 --ssh-flag "-L 9000:beta-main-db:5432"'
-alias main-db-ssh-tunel='gcloud compute ssh beta-web-1 --ssh-flag "-L 9000:main-db-read-replica1:5432"'
-
-alias k-switch-hero='k-switch-context heroes-cluster'
-alias k-switch-cluster-1='k-switch-context cluster-1'
 alias k-context='kubectl config current-context'
 alias kg="kubectl get"
 

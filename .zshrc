@@ -1,3 +1,4 @@
+# zmodload zsh/zprof
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -39,16 +40,11 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
+# E--group-directories-firstxample format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-export VIRTUALENVWRAPPER_PYTHON=/Library/Frameworks/Python.framework/Versions/3.8/bin/python3.8
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-source /Library/Frameworks/Python.framework/Versions/3.8/bin/virtualenvwrapper.sh
-plugins=(git docker brew poetry)
+plugins=(git docker brew poetry zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
-source <(kubectl completion zsh)
 
 # User configuration
 HISTSIZE=5000
@@ -67,17 +63,19 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 
 source $HOME/aliases.bash
-alias ll='exa -la --group-directories-first'
+#alias ll='exa -la --group-directories-first'
+alias ls='lsd'
+alias ll='ls -l --group-directories-first'
+alias la='ls -a --group-directories-first'
+alias lla='ls -la --group-directories-first'
+# alias lt='ls -l --tree'
+lt() { lsd -al --tree --git -I'.git|node_modules|.mypy_cache|.pytest_cache|.venv' --color=always "$@" | less -R; }
 alias vim=nvim
 alias vi=nvim
+git-branch-cleanup() { git branch -D $(git branch -v | grep gone | tr -s ' ' | cut -f2 -d ' ') }
 
-export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-export PATH="/Library/Frameworks/GDAL.framework/Versions/Current/Programs/:${PATH}"
-
-export PATH="$HOME/.cargo/bin:/usr/local/sbin:$HOME/bin:$PATH"
+#export PATH="$HOME/.cargo/bin:/usr/local/sbin:$HOME/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
-export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
-export CLOUDSDK_PYTHON=python3
 
 pasteinit() {
   OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
@@ -90,28 +88,6 @@ pastefinish() {
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
-
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# added by travis gem
-[ -f /Users/dasd/.travis/travis.sh ] && source /Users/dasd/.travis/travis.sh
-
-# The next line updates PATH for the Google Cloud SDK.
-[ -f '/Users/dasd/google-cloud-sdk/path.bash.inc' ] && source '/Users/dasd/google-cloud-sdk/path.zsh.inc'
-
-# The next line enables shell command completion for gcloud.
-[ -f '/Users/dasd/google-cloud-sdk/completion.bash.inc' ] && source '/Users/dasd/google-cloud-sdk/completion.zsh.inc'
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
@@ -119,3 +95,12 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
+export PATH="$HOME/.poetry/bin:$PATH"
+eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
