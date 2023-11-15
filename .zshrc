@@ -40,9 +40,9 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# E--group-directories-firstxample format: plugins=(rails git textmate ruby lighthouse)
+# Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker brew poetry zsh-autosuggestions)
+plugins=(git docker brew poetry zsh-autosuggestions fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,3 +94,4 @@ eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
