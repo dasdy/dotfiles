@@ -33,6 +33,7 @@ icu4c
 jdupes
 jenv
 jpeg-turbo
+lazygit
 libepoxy
 libgit2
 libidn2
