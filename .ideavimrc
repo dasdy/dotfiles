@@ -47,6 +47,10 @@ set smartindent
 set scrolloff=8
 set showmatch
 set matchtime=3
+" J to join lines
+set ideajoin
+" Do not change mode when entering Intellij refactorings
+set idearefactormode=keep
 
 " delete without yanking
 nnoremap <leader>d "_d
@@ -59,11 +63,23 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-"" Map \r to the Reformat Code action
-map \r <Action>(ReformatCode)
+"" Map \ to the formatting/refactoring stuff
+map \f <Action>(ReformatCode)
+map \r <Action>(Refactorings.QuickListPopupAction)
+map \o <Action>(OptimizeImports)
+map \b <Action>(ToggleLineBreakpoint)
+
+" various jumps ...
+nnoremap gs :action GotoSymbol<CR>
+nnoremap gt :action GotoTest<CR>
+nnoremap gp :action GotoSuperMethod<CR>
+nnoremap ge :action GotoNextError<CR>
+nnoremap gE :action GotoPreviousError<CR>
+
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
 
 "" Map <leader>d to start debug
 "map <leader>d <Action>(Debug)
 
 "" Map \b to toggle the breakpoint on the current line
-map \b <Action>(ToggleLineBreakpoint)
