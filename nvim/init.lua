@@ -112,7 +112,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',    opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -159,8 +159,8 @@ require('lazy').setup({
     priority = 1000,
     config = function() vim.cmd.colorscheme 'catppuccin' end
   },
-  -- Little game for practice 
-  {'ThePrimeagen/vim-be-good'},
+  -- Little game for practice
+  { 'ThePrimeagen/vim-be-good' },
 
   {
     -- Set lualine as statusline
@@ -298,6 +298,27 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+-- Move in buffers
+-- Conflicts with horizontal splits, should rething this
+-- vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-l>", ":bnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-h>", ":bprevious<CR>", { noremap = true, silent = true })
+
+
+-- Stay in indent mode
+vim.keymap.set("v", "<", "<gv", { noremap = true })
+vim.keymap.set("v", ">", ">gv", { noremap = true })
+
+-- Move lines
+-- Note that on macOS this requires setting option key to work as "Esc+"
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==")
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -354,7 +375,7 @@ local function live_grep_git_root()
   local git_root = find_git_root()
   if git_root then
     require('telescope.builtin').live_grep({
-      search_dirs = {git_root},
+      search_dirs = { git_root },
     })
   end
 end
@@ -469,7 +490,7 @@ local on_attach = function(_, bufnr)
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-
+  nmap('<leader>cf', vim.lsp.buf.format, '[C]ode [F]ormat')
   nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
@@ -480,6 +501,8 @@ local on_attach = function(_, bufnr)
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+  vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help,
+    { buffer = bufnr, desc = 'Signature Documentation' })
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -521,9 +544,8 @@ require('mason-lspconfig').setup()
 --  define the property 'filetypes' to the map in question.
 local servers = {
   -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
+  gopls = {},
+  pyright = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
   rust_analyzer = {},
