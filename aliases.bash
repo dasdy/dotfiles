@@ -22,6 +22,12 @@ git-branch-cleanup() { git branch -D $(git branch -v | grep gone | tr -s ' ' | c
 alias fzfp="fzf --preview 'bat --color=always {}' --preview-window '~3'"
 alias gg=lazygit
 
+# fuzzy-find any directory two layers down, and go there
+function fd() {
+  local dir
+  dir=$(find -L ${1:-.} -maxdepth 2 -type d 2> /dev/null | fzf +m) && cd "$dir"
+}
+
 function dbuild-push() {
     dbuild-ssh -t "$1" . "${@:2}"
     docker push "$1"
