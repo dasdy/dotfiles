@@ -95,3 +95,4 @@ eval "$(pyenv init -)"
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+eval "$(zoxide init zsh)"
