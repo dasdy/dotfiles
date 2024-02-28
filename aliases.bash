@@ -18,10 +18,11 @@ alias lla='ls -la --group-directories-first'
 function lt() { lsd -al --tree --git -I'.git' -I'node_modules' -I'.mypy_cache' -I '.pytest_cache' -I '.venv' --color=always "$@" | less -R; }
 alias vim=nvim
 alias vi=nvim
+alias icat='kitty icat'
 git-branch-cleanup() { git branch -D $(git branch -v | grep gone | tr -s ' ' | cut -f2 -d ' ') }
 alias fzfp="fzf --preview 'bat --color=always {}' --preview-window '~3'"
 alias gg=lazygit
-
+alias tmux="TERM=screen-256color-bce tmux"
 # fuzzy-find any directory two layers down, and go there
 function fzd() {
   local dir

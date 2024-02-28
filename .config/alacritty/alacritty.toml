@@ -1,0 +1,21 @@
+# $HOME/.config/alacritty/alacritty.toml
+# by Rito Ghosh 2023-10-06
+
+[window]
+
+opacity = 0.9
+
+padding.x = 10
+padding.y = 10
+
+decorations = "Full"
+decorations_theme_variant = "Light" # "Dark"
+
+[font]
+
+# normal.family = "Hack Nerd Font"
+# bold.family = "Hack Nerd Font"
+# italic.family = "Hack Nerd Font"
+# bold_italic.family = "Hack Nerd Font"
+
+size = 23.0
