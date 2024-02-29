@@ -70,8 +70,8 @@ require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
   -- Git related plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
+  -- 'tpope/vim-fugitive',
+  -- 'tpope/vim-rhubarb',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -166,11 +166,11 @@ require('lazy').setup({
     },
     config = function() vim.cmd.colorscheme 'catppuccin' end
   },
-  {
-    "folke/tokyonight.nvim",
-    opts = {},
-  },
-  { "lunarvim/colorschemes" },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   opts = {},
+  -- },
+  -- { "lunarvim/colorschemes" },
   -- Little game for practice
   { 'ThePrimeagen/vim-be-good' },
 
