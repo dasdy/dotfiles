@@ -1,14 +1,18 @@
 # $HOME/.config/alacritty/alacritty.toml
 # by Rito Ghosh 2023-10-06
 
+
+# Don't forget to run git submodule --init --recursive
+# for this to work
 import = ["~/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
 [window]
 
 
-padding.x = 10
-padding.y = 10
+padding.x = 20
+padding.y = 25
+dynamic_padding=true
 
-decorations = "Full"
+decorations = "Transparent"
 decorations_theme_variant = "Light" # "Dark"
 option_as_alt = "Both"
 [font]

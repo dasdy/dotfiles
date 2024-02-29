@@ -100,23 +100,43 @@ require('lazy').setup({
     'hrsh7th/nvim-cmp',
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
+      {
+        'L3MON4D3/LuaSnip',
+        build = (function()
+          return 'make install_jsregexp'
+        end)(),
+      },
       'saadparwaiz1/cmp_luasnip',
 
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path',
 
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
     },
   },
 
-  {
-    'hrsh7th/cmp-path'
-  },
-
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',    opts = {} },
+  {
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
+    opts = {},
+    config = function()
+      -- document existing key chains
+      require('which-key').register {
+        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
+        ['<leader>d'] = { name = '[D]ocument/[D]ebug', _ = 'which_key_ignore' },
+        ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+        ['<leader>h'] = { name = 'More git', _ = 'which_key_ignore' },
+        ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
+        ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+        ['<leader>b'] = { name = '[B]uffers', _ = 'which_key_ignore' },
+        ['<leader>t'] = { name = '[T]ree', _ = 'which_key_ignore' },
+      }
+    end
+  },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -202,7 +222,7 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',   opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -301,18 +321,6 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
--- document existing key chains
-require('which-key').register {
-  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = '[D]ocument/[D]ebug', _ = 'which_key_ignore' },
-  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-  ['<leader>h'] = { name = 'More git', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-  ['<leader>b'] = { name = '[B]uffers', _ = 'which_key_ignore' },
-  ['<leader>t'] = { name = '[T]ree', _ = 'which_key_ignore' },
-}
 
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
