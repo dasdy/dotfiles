@@ -72,11 +72,13 @@ return {
 				-- Jump to the type of the word under your cursor.
 				--  Useful when you're not sure what type a variable is and you want to see
 				--  the definition of its *type*, not where it was *defined*.
-				map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+				--  TODO this should live nearby document-symbols func, so disabling it until that is fixed
+				-- map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
 
 				-- Fuzzy find all the symbols in your current document.
 				--  Symbols are things like variables, functions, types, etc.
-				map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+				--  TODO this conflicts with debug start command. Maybe a better mnemonic?
+				-- map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
 
 				-- Fuzzy find all the symbols in your current workspace
 				--  Similar to document symbols, except searches over your whole project.
