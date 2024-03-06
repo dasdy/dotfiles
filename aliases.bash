@@ -66,3 +66,20 @@ function k-events() {
     k-pod "$1"
     kd pod "$1" | sed -ne '/^Events/,$p'
 }
+
+# lazy loading pyenv so that it does not slow down startup
+function pyenv() {
+  unset -f pyenv
+  eval "$(command pyenv init -)"
+  eval "$(command pyenv init --path)"
+  eval "$(command pyenv virtualenv-init -)"
+  pyenv $@
+}
+
+# lazy loading jenv so that it does not slow down startup
+function jenv() {
+  unset -f jenv
+  eval "$(jenv init -)"
+  jenv $@
+}
+
