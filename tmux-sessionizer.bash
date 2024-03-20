@@ -15,9 +15,7 @@ selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
 if [[ -z "${TMUX}" ]] && [[ -z $tmux_running ]]; then
-    echo "pyenv 2&> /dev/null"
-    echo "jenv 2&> /dev/null"
-
+    cd $selected
     [ -f pyproject.toml ] && echo "poetry shell"
     [ -f pyproject.toml ] || [ -f .python_version ] echo "pyenv 2&> /dev/null"
 
@@ -30,5 +28,5 @@ if ! tmux has-session -t=$selected_name 2> /dev/null; then
     tmux new-session -ds $selected_name -c $selected
 fi
 
-# tmux switch-client -t $selected_name
-tmux attach -t $selected_name
+tmux switch-client -t $selected_name
+# tmux attach -t $selected_name
