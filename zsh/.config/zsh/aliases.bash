@@ -81,5 +81,19 @@ function jenv() {
   jenv $@
 }
 
+function ei ()
+{
+    if [ -f pyproject.toml ] || [ -f .python_version ]; then
+        echo "pyenv init"
+        pyenv 2&> /dev/null
+    fi
+    if [ -f pyproject.toml ]; then 
+        echo "poetry init"
+        poetry shell -q 2&> /dev/null
+    fi
+    echo "jenv init"
+    jenv 2&> /dev/null
+}
+
 alias t="tmux-sessionizer"
 
