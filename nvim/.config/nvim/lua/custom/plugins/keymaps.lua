@@ -14,6 +14,13 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+
+vim.keymap.set('n', "gK", vim.lsp.buf.signature_help, { desc = "Signature Help" })
+vim.keymap.set({ 'i', 'n' }, "<c-k>", vim.lsp.buf.signature_help, { desc = "Signature Help" })
+vim.keymap.set({ 'v', 'n' }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+vim.keymap.set({ 'v', 'n' }, "<leader>cc", vim.lsp.codelens.run, { desc = "Run Codelens" })
+vim.keymap.set('n', "<leader>cC", vim.lsp.codelens.refresh, { desc = "Refresh & Display Codelens" })
+
 -- Buffer manipulation. Temp bindings until I get used to
 
 vim.keymap.set('n', '<leader>bd', ":bdelete<CR>", { desc = '[B]uffer [D]elete' })

@@ -250,7 +250,7 @@ require('lazy').setup({
 
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup({
-        ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc' },
+        ensure_installed = { 'bash', 'python', 'lua', 'markdown', 'vim', 'vimdoc', 'scala' },
         -- Autoinstall languages that are not installed
         auto_install = true,
         highlight = { enable = true },
@@ -265,6 +265,7 @@ require('lazy').setup({
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
   },
+
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
@@ -291,8 +292,12 @@ require('lazy').setup({
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional 'plugins' for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
+
+
   require('kickstart.plugins.autoformat'),
   require('kickstart.plugins.debug'),
+  require('custom.plugins.dap-python'),
+  require('custom.plugins.metals'),
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
@@ -303,12 +308,13 @@ require('lazy').setup({
   -- { import = 'custom.plugins' },
 }, {})
 
+-- These don't return module configs, so they are not in the list above.
+-- TODO Consider rewriting into modules formoar laziness
+require('custom.plugins.cmp')
 require('custom.plugins.options')
 require('custom.plugins.keymaps')
 require('custom.plugins.highlight')
 require('custom.plugins.telescope')
 require('custom.plugins.treesitter')
-
-require('custom.plugins.cmp')
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
