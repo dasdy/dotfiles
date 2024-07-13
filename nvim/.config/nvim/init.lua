@@ -217,9 +217,6 @@ require('lazy').setup({
     opts = {},
   },
 
-  -- 'gc' to comment visual regions/lines
-  { 'numToStr/Comment.nvim',   opts = {} },
-
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
@@ -285,6 +282,9 @@ require('lazy').setup({
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+
+      -- gcc for line comment
+      require('mini.comment').setup()
     end,
   },
 
