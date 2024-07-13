@@ -25,8 +25,8 @@
 (add-hook 'prog-mode-hook 'column-number-mode)
 
 (set-face-attribute 'default nil :height 100)
-(add-to-list 'default-frame-alist '(font . "Fira Code-10" ))
-
+;;(add-to-list 'default-frame-alist '(font . "Fira Code-10" ))
+(add-to-list 'default-frame-alist '(font . "JetBrains Mono-10" ))
 ;; (el-get-bundle 'gotham-theme)
 ;; (el-get-bundle 'solarized-theme)
 ;; (el-get-bundle 'zenburn-theme)
