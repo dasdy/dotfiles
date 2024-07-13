@@ -79,6 +79,10 @@ nnoremap gE :action GotoPreviousError<CR>
 nnoremap [[ :action MethodUp<CR>
 nnoremap ]] :action MethodDown<CR>
 
+map 'm <Action>(ShowTypeBookmarks)
+
+map <C-k> <Action>(QuickJavaDoc)
+"inoremap <C-k> <Action>(QuickJavaDoc)
 "" Map <leader>d to start debug
 "map <leader>d <Action>(Debug)
 
