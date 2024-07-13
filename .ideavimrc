@@ -73,6 +73,7 @@ map <leader>db <Action>(ToggleLineBreakpoint)
 
 " various jumps ...
 nnoremap gs :action GotoSymbol<CR>
+nnoremap gi :action GotoImplementation<CR>
 nnoremap gt :action GotoTest<CR>
 nnoremap gp :action GotoSuperMethod<CR>
 nnoremap ge :action GotoNextError<CR>
