@@ -1,6 +1,3 @@
-snippet v "shorthand variable declaration"
-	${1} := ${2}
-
 snippet vr "variable initialization"
 	var ${1:t} ${0:string}
 
@@ -63,24 +60,6 @@ snippet inf "full interface "
 		${2:/* methods */}
 	}
 
-snippet if "if condition"
-	if $1 {
-		${2:${VISUAL}}
-	}
-
-
-snippet ife "if else condition"
-	if $1 {
-		${2:${VISUAL}}
-	} else {
-		${0}
-	}
-
-snippet el "else"
-	else {
-		${0:${VISUAL}}
-	}
-
 snippet ir "if error not nil, return err"
 	if err != nil {
 		return err
@@ -101,11 +80,6 @@ snippet f3 "float32"
 
 snippet f6 "float64"
 	float64
-
-snippet for "for loop"
-	for ${1}{
-		${0:${VISUAL}}
-	}
 
 snippet fori "for int loop"
 	for ${2:i} := 0; $2 < ${1:count}; $2${3:++} {
@@ -145,12 +119,6 @@ snippet mk "make"
 
 snippet mp "map"
 	map[${1:string}]${0:int}
-
-snippet main "func main()"
-	func main() {
-		${1}
-	}
-	${0}
 
 snippet nw "new"
 	new(${0:type})
@@ -246,11 +214,6 @@ snippet bench "benchmark function"
 		}
 	}
 	${0}
-
-snippet cl "composite literals"
-	type ${1:name} struct {
-		${2:attrName} ${3:attrType}
-	}
 
 snippet om "if key in a map"
 	if ${1:value}, ok := ${2:map}[${3:key}]; ok == true {

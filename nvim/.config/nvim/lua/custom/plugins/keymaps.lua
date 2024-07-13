@@ -28,9 +28,9 @@ vim.keymap.set('n', '<leader>bp', ":bprevious<CR>", { desc = '[B]uffer [P]rev' }
 vim.keymap.set('n', '<leader>bn', ":bnext<CR>", { desc = '[B]uffer [N]ext' })
 
 -- Open file explorer in-place
-vim.keymap.set('n', '<leader>tv', ":Vex<CR>", { desc = '[T]ree [V]ertical' })
-vim.keymap.set('n', '<leader>th', ":Sex<CR>", { desc = '[T]ree [H]orizontal' })
-vim.keymap.set('n', '<leader>te', ":Ex<CR>", { desc = '[T]re[e]' })
+vim.keymap.set('n', '<leader>bv', ":Vex<CR>", { desc = '[B]rowser [V]ertical' })
+vim.keymap.set('n', '<leader>bh', ":Sex<CR>", { desc = '[B]rowser [H]orizontal' })
+vim.keymap.set('n', '<leader>be', ":Ex<CR>", { desc = '[B]rowser' })
 
 -- Move in buffers
 -- Conflicts with horizontal splits, should rething this

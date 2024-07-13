@@ -122,7 +122,6 @@ require('lazy').setup({
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
         ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
         ['<leader>b'] = { name = '[B]uffers', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[T]ree', _ = 'which_key_ignore' },
       })
     end,
   },
@@ -250,7 +249,7 @@ require('lazy').setup({
 
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup({
-        ensure_installed = { 'bash', 'python', 'lua', 'markdown', 'vim', 'vimdoc', 'scala' },
+        ensure_installed = { 'bash', 'python', 'lua', 'markdown', 'vim', 'vimdoc' },
         -- Autoinstall languages that are not installed
         auto_install = true,
         highlight = { enable = true },
@@ -265,8 +264,29 @@ require('lazy').setup({
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
   },
-
-
+  {
+    "ray-x/go.nvim",
+    dependencies = { -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "theHamsta/nvim-dap-virtual-text",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup(
+        {
+          icons = false,
+          lsp_cfg = true
+        }
+      )
+    end,
+    keys = {
+      { "<leader>dT", ":GoTest", desc = "Go Tests" }
+    },
+    -- event = { "CmdlineEnter" },
+    ft = { "go", 'gomod' },
+    -- build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+  },
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
