@@ -34,5 +34,10 @@ return { -- Autoformat
 			-- is found.
 			-- javascript = { { 'prettierd', 'prettier' } },
 		},
+		formatters = {
+			black = {
+				prepend_args = { "-S", "-l", "120" }
+			}
+		}
 	},
 }
