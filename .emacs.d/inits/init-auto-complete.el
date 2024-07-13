@@ -7,6 +7,4 @@
 (global-set-key (kbd "M-n") 'ac-expand)
 (global-set-key (kbd "M-p") 'ac-previous)
 
-(require 'haskell-ac)
-
 (provide 'init-auto-complete)

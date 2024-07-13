@@ -16,9 +16,6 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 source $HOME/aliases.bash
-alias ll='exa -la --group-directories-first'
-alias vim=nvim
-alias vi=nvim
 
 
 # The next line updates PATH for the Google Cloud SDK.

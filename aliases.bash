@@ -5,7 +5,6 @@ alias vi=nvim
 alias dbuild-ssh='docker build --build-arg SSH_PRIVATE_KEY="$(cat ~/.ssh/id_rsa)"'
 alias dcbuild-ssh='docker-compose build --build-arg SSH_PRIVATE_KEY="$(cat ~/.ssh/id_rsa)"'
 alias docker-stop-all='docker stop $(docker ps -aq)'
-alias brewup='brew update ; brew upgrade; brew cleanup ; brew doctor'
 
 alias houndci-check='flake8-diff --flake8-options --config .flake8.ini'
 
