@@ -47,3 +47,5 @@ vim.o.wrap = false
 vim.o.scrolloff = 8
 -- Convert tabs to spaces
 vim.o.expandtab = true
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
