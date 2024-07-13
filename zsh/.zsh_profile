@@ -8,19 +8,20 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-export PYENV_ROOT="$HOME/.pyenv"
+export PYENV_ROOT=$XDG_DATA_HOME/pyenv
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export KUBECONFIG="$XDG_CONFIG_HOME/kube" 
+export KUBECACHEDIR="$XDG_CACHE_HOME/kube"
+export K9SCONFIG="$XDG_CONFIG_HOME"/k9s
+
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$HOME/.jenv/bin:$PATH"
+
 export TERM="xterm-256color"
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
-export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
-export PYENV_ROOT=$XDG_DATA_HOME/pyenv
-export KUBECONFIG="$XDG_CONFIG_HOME/kube" 
-export KUBECACHEDIR="$XDG_CACHE_HOME/kube"
-export K9SCONFIG="$XDG_CONFIG_HOME"/k9s
 
 # User configuration
 HISTSIZE=5000
@@ -37,24 +38,5 @@ setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
-
-function pasteinit() {
-  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
-  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
-}
-
-pastefinish() {
-  zle -N self-insert $OLD_SELF_INSERT
-}
-zstyle :bracketed-paste-magic paste-init pasteinit
-zstyle :bracketed-paste-magic paste-finish pastefinish
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-
-eval "$(zoxide init zsh)"
-
-
 
 
