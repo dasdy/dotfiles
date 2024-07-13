@@ -276,12 +276,17 @@ require('lazy').setup({
       require("go").setup(
         {
           icons = false,
+          lsp_keymaps = false, -- i dont want C-k bullshit
           lsp_cfg = true
         }
       )
+      vim.keymap.set('n', '<space>rn', require('go.rename').run, { desc = 'rename' })
+      vim.keymap.set('n', '<space>ca', require('go.codeaction').run_code_action, { desc = 'rename' })
     end,
     keys = {
-      { "<leader>dT", ":GoTest", desc = "Go Tests" }
+      { "<leader>dT", ":GoTest", desc = "Go Tests" },
+
+
     },
     -- event = { "CmdlineEnter" },
     ft = { "go", 'gomod' },

@@ -34,10 +34,11 @@ vim.keymap.set('n', '<leader>be', ":Ex<CR>", { desc = '[B]rowser' })
 
 -- Move in buffers
 -- Conflicts with horizontal splits, should rething this
--- vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
--- vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
--- vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
--- vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
+
 vim.keymap.set("n", "<A-l>", ":bnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<A-h>", ":bprevious<CR>", { noremap = true, silent = true })
 
