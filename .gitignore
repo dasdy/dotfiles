@@ -14,3 +14,4 @@ storage
 .emacs.d/el-get/
 .emacs.d/smex-items
 .emacs.d/url/
+.config/tmux/plugins
