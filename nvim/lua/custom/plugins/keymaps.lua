@@ -14,6 +14,17 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+-- Buffer manipulation. Temp bindings until I get used to
+
+vim.keymap.set('n', '<leader>bd', ":bdelete<CR>", { desc = '[B]uffer [D]elete' })
+vim.keymap.set('n', '<leader>bp', ":bprevious<CR>", { desc = '[B]uffer [P]rev' })
+vim.keymap.set('n', '<leader>bn', ":bnext<CR>", { desc = '[B]uffer [N]ext' })
+
+-- Open file explorer in-place
+vim.keymap.set('n', '<leader>tv', ":Vex<CR>", { desc = '[T]ree [V]ertical' })
+vim.keymap.set('n', '<leader>th', ":Sex<CR>", { desc = '[T]ree [H]orizontal' })
+vim.keymap.set('n', '<leader>te', ":Ex<CR>", { desc = '[T]re[e]' })
+
 -- Move in buffers
 -- Conflicts with horizontal splits, should rething this
 -- vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
@@ -34,4 +45,3 @@ vim.keymap.set("n", "<A-j>", ":m .+1<CR>==")
 vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
-

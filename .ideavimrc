@@ -50,8 +50,8 @@ set matchtime=3
 " J to join lines
 set ideajoin
 " Do not change mode when entering Intellij refactorings
-set idearefactormode=keep
-set relativenumber
+" set idearefactormode=keep
+" set relativenumber
 set number
 set ignorecase 
 " delete without yanking
@@ -66,9 +66,9 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \ to the formatting/refactoring stuff
-map \f <Action>(ReformatCode)
-map \r <Action>(Refactorings.QuickListPopupAction)
-map \o <Action>(OptimizeImports)
+map <leader>cf <Action>(ReformatCode)
+map <leader>cr <Action>(Refactorings.QuickListPopupAction)
+map <leader>co> <Action>(OptimizeImports)
 map <leader>db <Action>(ToggleLineBreakpoint)
 
 " various jumps ...
@@ -82,10 +82,19 @@ nnoremap [m :action MethodUp<CR>
 nnoremap ]m :action MethodDown<CR>
 
 map 'm <Action>(ShowTypeBookmarks)
+map mm <Action>(ShowTypeBookmarks)
 
 nmap K <Action>(QuickJavaDoc)
 "inoremap <C-k> <Action>(QuickJavaDoc)
 "" Map <leader>d to start debug
 "map <leader>d <Action>(Debug)
 
+"" vim-like commands to resize splits
+nmap <C-w>\| <Action>(MaximizeEditorInSplit)
+nmap <C-w>= <Action>(MaximizeEditorInSplit)
+
+nmap <C-w><Down> <Action>(StretchSplitToBottom)
+nmap <C-w><Left> <Action>(StretchSplitToLeft)
+nmap <C-w><Right> <Action>(StretchSplitToRight)
+nmap <C-w><Up> <Action>(StretchSplitToTop)
 "" Map \b to toggle the breakpoint on the current line
