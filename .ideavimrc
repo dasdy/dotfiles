@@ -51,8 +51,8 @@ set matchtime=3
 set ideajoin
 " Do not change mode when entering Intellij refactorings
 " set idearefactormode=keep
-" set relativenumber
-set number
+set number relativenumber
+" set number
 set ignorecase 
 " delete without yanking
 nnoremap <leader>d "_d
@@ -99,3 +99,8 @@ nmap <C-w><Left> <Action>(StretchSplitToLeft)
 nmap <C-w><Right> <Action>(StretchSplitToRight)
 nmap <C-w><Up> <Action>(StretchSplitToTop)
 "" Map \b to toggle the breakpoint on the current line
+
+"" Regular jumplist is unreliable, does not sync up with intellij always.
+nnoremap <c-o> :action Back<cr>
+nnoremap <c-i> :action Forward<cr>
+
