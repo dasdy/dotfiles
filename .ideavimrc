@@ -26,10 +26,10 @@ Plug 'machakann/vim-highlightedyank'
 " gcc to comment out a line
 " gc to comment target of a motion
 Plug 'tpope/vim-commentary'
-" Surround plugin
-" S[({ to surround selection with brackets
-" cs[({ to change surrounding brackets
-" ds[({ to delete surrounding brackets
+
+" S( to surround selection with brackets
+" cs[( to change surrounding [ brackets to ( brackets
+" ds( to delete surrounding brackets
 " closing brackets to omit spaces
 Plug 'tpope/vim-surround'
 
@@ -76,9 +76,9 @@ nnoremap gs :action GotoSymbol<CR>
 nnoremap gi :action GotoImplementation<CR>
 nnoremap gt :action GotoTest<CR>
 nnoremap gp :action GotoSuperMethod<CR>
-nnoremap ge :action GotoNextError<CR>
-nnoremap gE :action GotoPreviousError<CR>
 
+nnoremap [d :action GotoPreviousError<CR>
+nnoremap ]d :action GotoNextError<CR>
 nnoremap [m :action MethodUp<CR>
 nnoremap ]m :action MethodDown<CR>
 
