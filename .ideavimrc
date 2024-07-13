@@ -32,6 +32,10 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 set which-key
 set notimeout
 set ideamarks
+set hlsearch
+set breakindent
+set smartindent
+set scrolloff=8
 nmap g] :action GotoImplementation<CR>
 nnoremap <SPACE> <Nop>
 let mapleader=" "

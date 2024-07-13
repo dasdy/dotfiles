@@ -238,7 +238,7 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
@@ -254,6 +254,8 @@ vim.o.clipboard = 'unnamedplus'
 -- Enable break indent
 vim.o.breakindent = true
 
+-- Indent line automatically
+vim.o.smartindent = true
 -- Save undo history
 vim.o.undofile = true
 
@@ -274,6 +276,12 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- Disable wrap
+vim.o.wrap = false
+-- Keep cursor in viewport
+vim.o.scrolloff = 8
+-- Convert tabs to spaces
+vim.o.expandtab = true
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
