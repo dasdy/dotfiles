@@ -30,3 +30,9 @@ size = 14.0
 style.shape = "Block"
 
 vi_mode_style = "Beam"
+
+[keyboard]
+bindings = [
+  { key = "Right", mods = "Alt", chars = "\u001BF" },
+  { key = "Left",  mods = "Alt", chars = "\u001BB" },
+]
