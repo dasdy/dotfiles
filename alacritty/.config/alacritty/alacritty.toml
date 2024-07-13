@@ -1,0 +1,38 @@
+# $HOME/.config/alacritty/alacritty.toml
+# by Rito Ghosh 2023-10-06
+
+
+# Don't forget to run git submodule --init --recursive
+# for this to work
+import = ["~/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
+[window]
+
+
+padding.x = 20
+padding.y = 25
+dynamic_padding=true
+
+decorations = "Transparent"
+decorations_theme_variant = "Light" # "Dark"
+option_as_alt = "Both"
+[font]
+
+normal.family = "Hack Nerd Font"
+bold.family = "Hack Nerd Font"
+italic.family = "Hack Nerd Font"
+bold_italic.family = "Hack Nerd Font"
+
+size = 14.0
+
+
+[cursor]
+
+style.shape = "Block"
+
+vi_mode_style = "Beam"
+
+[keyboard]
+bindings = [
+  { key = "Right", mods = "Alt", chars = "\u001BF" },
+  { key = "Left",  mods = "Alt", chars = "\u001BB" },
+]
