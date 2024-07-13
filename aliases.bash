@@ -19,6 +19,8 @@ lt() { lsd -al --tree --git -I'.git|node_modules|.mypy_cache|.pytest_cache|.venv
 alias vim=nvim
 alias vi=nvim
 git-branch-cleanup() { git branch -D $(git branch -v | grep gone | tr -s ' ' | cut -f2 -d ' ') }
+alias fzfp="fzf --preview 'bat --color=always {}' --preview-window '~3'"
+alias gg=lazygit
 
 function dbuild-push() {
     dbuild-ssh -t "$1" . "${@:2}"

@@ -38,6 +38,7 @@ let mapleader=" "
 nnoremap <leader>d "_d
 set showmatch
 set matchtime=3
+"" Move lines/blocks up/down
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi
