@@ -15,7 +15,7 @@ alias ll='ls -l --group-directories-first'
 alias la='ls -a --group-directories-first'
 alias lla='ls -la --group-directories-first'
 # alias lt='ls -l --tree'
-lt() { lsd -al --tree --git -I'.git|node_modules|.mypy_cache|.pytest_cache|.venv' --color=always "$@" | less -R; }
+function lt() { lsd -al --tree --git -I'.git' -I'node_modules' -I'.mypy_cache' -I '.pytest_cache' -I '.venv' --color=always "$@" | less -R; }
 alias vim=nvim
 alias vi=nvim
 git-branch-cleanup() { git branch -D $(git branch -v | grep gone | tr -s ' ' | cut -f2 -d ' ') }
@@ -23,7 +23,7 @@ alias fzfp="fzf --preview 'bat --color=always {}' --preview-window '~3'"
 alias gg=lazygit
 
 # fuzzy-find any directory two layers down, and go there
-function fd() {
+function fzd() {
   local dir
   dir=$(find -L ${1:-.} -maxdepth 2 -type d 2> /dev/null | fzf +m) && cd "$dir"
 }
