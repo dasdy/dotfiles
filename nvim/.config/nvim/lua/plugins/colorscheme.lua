@@ -9,6 +9,8 @@ return {
       which_key = true,
     },
   },
+  { "rose-pine/neovim", name = "rose-pine" },
+  { "ellisonleao/gruvbox.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {

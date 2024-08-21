@@ -4,3 +4,4 @@
 vim.keymap.set({ "n", "v" }, "x", '"_x')
 vim.keymap.set("n", "<leader>d", '"_d', { desc = "Delete without changing clipboard" })
 vim.keymap.set("v", "<leader>dd", '"_d', { desc = "Delete without changing clipboard" })
+vim.keymap.set("n", "<leader>h", ":noh<CR>", { desc = "Stop highlighting local search" })

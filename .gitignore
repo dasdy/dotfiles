@@ -5,6 +5,7 @@
 .emacs.d/smex-items
 .emacs.d/url/
 nvim/.config/nvim/lazy-lock.json
+nvim/.config/nvim/lazyvim.json
 nvim/.config/nvim/lazy
 nvim/.config/nvim/mason
 tmux/.config/tmux/plugins
