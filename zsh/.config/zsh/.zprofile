@@ -39,3 +39,6 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 
 
+# >>> coursier install directory >>>
+export PATH="$PATH:/Users/opodze/Library/Application Support/Coursier/bin"
+# <<< coursier install directory <<<

@@ -9,7 +9,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/dasd/.oh-my-zsh"
+export ZSH="$HOME/.config/zsh/oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -53,7 +53,7 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(zoxide init zsh)"
 
-source $HOME/.zsh_profile
+source $HOME/.zprofile
 source $HOME/.config/zsh/aliases.bash
 
 

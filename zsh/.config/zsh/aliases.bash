@@ -71,10 +71,8 @@ jenv() {
 }
 
 envinit() {
-    if [ -f pyproject.toml ] || [ -f .python_version ]; then
-        echo "pyenv init"
-        pyenv 2 &>/dev/null
-    fi
+    echo "pyenv init"
+    pyenv 2 &>/dev/null
     if [ -f pyproject.toml ]; then
         echo "poetry init"
         poetry shell -q 2 &>/dev/null
