@@ -7,13 +7,14 @@ alias k='kubectl'
 
 alias k-pod='kubectl get pods | grep '
 
-alias ls='lsd'
-alias ll='ls -l --group-directories-first'
-alias la='ls -a --group-directories-first'
-alias lla='ls -la --group-directories-first'
-# alias lt='ls -l --tree'
+EZA_F='--group-directories-first'
+alias ls='eza $EZA_F'
+alias ll='eza -l $EZA_F'
+alias la='eza -a $EZA_F'
+alias lla='eza -la $EZA_F'
+
 lt() {
-    lsd -al --tree --git -I'.git' -I'node_modules' -I'.mypy_cache' -I '.pytest_cache' -I '.venv' --color=always "$@" | less -R
+    eza -alT --git-ignore $EZA_F -I'.git|node_modules|.mypy_cache|.pytest_cache|.venv' --color=always "$@" | less -R
 }
 
 alias vim=nvim
