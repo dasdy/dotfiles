@@ -24,7 +24,8 @@ export TERM="xterm-256color"
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 
 # User configuration
-HISTSIZE=5000
+HISTFILE="$HOME/.config/zsh/.zsh_history"
+HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
