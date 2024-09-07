@@ -51,6 +51,9 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 source $HOME/.config/zsh/.zprofile
 source $HOME/.config/zsh/aliases.bash
+for file in $HOME/.config/zsh/env-specific/*.sh; do
+    source $file
+done
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
