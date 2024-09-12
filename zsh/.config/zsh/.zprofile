@@ -1,5 +1,3 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # TODO: figure out how to re-enable it, does not seem to be a way for it, only with warning
 # Right now the workaround is to use powerlevel10k
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
