@@ -19,11 +19,15 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$HOME/.jenv/bin:$PATH"
 
 export TERM="xterm-256color"
-export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+
+source <(fzf --zsh)
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS="--ansi"
 
 # User configuration
 HISTFILE="$HOME/.config/zsh/.zsh_history"
-HISTSIZE=100000
+HISTSIZE=1000000
 SAVEHIST=$HISTSIZE
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
