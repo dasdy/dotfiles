@@ -13,6 +13,9 @@ alias ll='eza -l $EZA_F'
 alias la='eza -a $EZA_F'
 alias lla='eza -la $EZA_F'
 
+alias cat='bat -p'
+alias fd='fd -H'
+
 lt() {
     eza -alT --git-ignore $EZA_F -I'.git|node_modules|.mypy_cache|.pytest_cache|.venv' --color=always "$@" | less -R
 }
