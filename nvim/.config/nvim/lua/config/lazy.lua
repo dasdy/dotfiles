@@ -6,7 +6,16 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
 end
 vim.opt.rtp:prepend(lazypath)
-
+vim.filetype.add({
+  extension = {
+    gotmpl = "gotmpl",
+  },
+  pattern = {
+    [".*/templates/.*%.tpl"] = "helm",
+    [".*/templates/.*%.ya?ml"] = "helm",
+    ["helmfile.*%.ya?ml"] = "helm",
+  },
+})
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
@@ -20,6 +29,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.go" },
     { import = "lazyvim.plugins.extras.lang.python" },
     { import = "lazyvim.plugins.extras.lang.json" },
+    { import = "lazyvim.plugins.extras.lang.markdown" },
     -- { import = "lazyvim.plugins.extras.lang.rust" },
     -- TODO figure out issue with metals
     -- { import = "lazyvim.plugins.extras.lang.scala" },
@@ -27,6 +37,9 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.yaml" },
     -- { import = "lazyvim.plugins.extras.editor.fzf" },
     { import = "lazyvim.plugins.extras.test.core" },
+    { import = "lazyvim.plugins.extras.lang.tailwind" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
+    { import = "lazyvim.plugins.extras.formatting.black" },
     -- import/override with your plugins
     { import = "plugins" },
   },
