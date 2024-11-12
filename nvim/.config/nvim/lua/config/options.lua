@@ -62,3 +62,8 @@ vim.filetype.add({
 })
 
 vim.filetype.add({ extension = { templ = "templ" } })
+
+-- For some reason this opening python files on macOS is super slow for me, even w/o any plugins.
+-- This fixes the issue. Possibly something to do with pyenv shimming and neovim not finding a binary quickly
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_python_provider = 0
