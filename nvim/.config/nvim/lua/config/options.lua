@@ -49,18 +49,6 @@ vim.o.expandtab = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 
--- Setup file types with specific extensions
-vim.filetype.add({
-  extension = {
-    gotmpl = "gotmpl",
-  },
-  pattern = {
-    [".*/templates/.*%.tpl"] = "helm",
-    -- [".*/templates/.*%.ya?ml"] = "helm",
-    ["helmfile.*%.ya?ml"] = "helm",
-  },
-})
-
 vim.filetype.add({ extension = { templ = "templ" } })
 
 -- For some reason this opening python files on macOS is super slow for me, even w/o any plugins.
