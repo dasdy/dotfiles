@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/sandbox ~ -mindepth 1 -maxdepth 1 -type d | fzf --ansi --preview 'onefetch {1} --no-color-palette -d version head license authors pending' --preview-window up)
+    selected=$(find ~/sandbox ~ -mindepth 1 -maxdepth 1 -type d | fzf --ansi --preview 'eza --tree --level 1 --color=always --group-directories-first {}' --preview-window right)
 fi
 
 if [[ -z $selected ]]; then
