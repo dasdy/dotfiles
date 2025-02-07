@@ -2,6 +2,7 @@
 # Right now the workaround is to use powerlevel10k
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
+export PATH=/opt/homebrew/bin:$PATH
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
