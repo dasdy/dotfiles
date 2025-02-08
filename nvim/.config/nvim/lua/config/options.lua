@@ -55,3 +55,5 @@ vim.filetype.add({ extension = { templ = "templ" } })
 -- This fixes the issue. Possibly something to do with pyenv shimming and neovim not finding a binary quickly
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_python_provider = 0
+
+vim.g.autoformat = false
