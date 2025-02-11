@@ -19,3 +19,13 @@ To make a new brewfile, use:
 ```shell
 brew bundle dump --file=brew/Brewfile
 ```
+
+## tmux
+
+`tmux` is a bit special - it needs additional steps after cloning:
+1. Initialize submodules
+
+```bash
+git pull --recurse-submodules
+```
+2. Install plugins. This is done by running `C-b I` after running tmux.
