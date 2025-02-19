@@ -32,7 +32,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker brew zsh-autosuggestions fzf)
+plugins=(git docker brew zsh-autosuggestions fzf zoxide tmux rsync pre-commit poetry-env poetry pip golang git-auto-fetch)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -54,10 +54,6 @@ source $HOME/.config/zsh/aliases.bash
 for file in $HOME/.config/zsh/env-specific/*.sh; do
     source $file
 done
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(zoxide init zsh)"
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
