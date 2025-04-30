@@ -40,6 +40,9 @@ vim.o.completeopt = "menuone,noselect"
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- Background buffers should also have statusline with filename (useful for vimdiff)
+vim.o.laststatus = 2
+
 -- Disable wrap
 vim.o.wrap = false
 -- Keep cursor in viewport
