@@ -1,10 +1,6 @@
-.PHONY: brew-install
-brew-install:
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 .PHONY: apps-install
 apps-install:
-	brew bundle --file=./brew/Brewfile
+	sudo pacman -S --needed - < pkglist.txt
 
 .PHONY: links-setup
 links-setup:
@@ -12,7 +8,7 @@ links-setup:
 
 .PHONY: brew-dump
 brew-dump:
-	brew bundle dump --file=./brew/Brewfile
+	pacman -Qqent > pkglist.txt
 
 .PHONY: all
 all: brew-install apps-install links-setup
