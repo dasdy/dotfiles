@@ -8,7 +8,7 @@ apps-install:
 
 .PHONY: links-setup
 links-setup:
-	stow */ -t "${HOME}"
+	stow */ -t "${HOME}" --dotfiles
 
 .PHONY: brew-dump
 brew-dump:

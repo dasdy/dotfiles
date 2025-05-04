@@ -1,9 +1,9 @@
 [submodule "tmux/.config/plugins/tpm"]
-	path = tmux/.config/plugins/tpm
+	path = tmux/dot-config/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
 [submodule "zsh/.config/zsh/oh-my-zsh/plugins/zsh-autosuggestions"]
-	path = zsh/.config/zsh/oh-my-zsh/plugins/zsh-autosuggestions
+	path = zsh/git-config/zsh/oh-my-zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
 [submodule "zsh/.config/zsh/oh-my-zsh"]
-	path = zsh/.config/zsh/oh-my-zsh
+	path = zsh/git-config/zsh/oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
