@@ -22,6 +22,10 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$HOME/.jenv/bin:$PATH"
 
+export VISUAL=nvim
+export EDITOR=nvim
+export MANPAGER='nvim +Man!'
+
 export TERM="xterm-256color"
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix'

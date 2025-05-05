@@ -5,8 +5,14 @@
     email = dasdeg@gmail.com
     name = Oleksandr Podze
 
-# [commit]
-    # gpgSign = true
+[alias]
+    up = pull --rebase --autostash
+
+[merge]
+    tool = nvimdiff
+
+[mergetool]
+    keepBackup = false
 
 [core]
     autocrlf = input  # keep newlines as in input
