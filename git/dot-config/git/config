@@ -6,7 +6,7 @@
     name = Oleksandr Podze
 
 [alias]
-    up = pull --rebase --autostash
+    up = pull --autostash
 
 [merge]
     tool = nvimdiff
