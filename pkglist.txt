@@ -42,4 +42,5 @@ uwsm
 waybar
 wget
 wireless_tools
+wl-clipboard
 zoxide
