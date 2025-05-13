@@ -26,8 +26,7 @@ okular
 pacman-contrib
 pavucontrol
 pre-commit
-signal-desktop
-steam
+rofi-wayland
 stern
 stow
 swaync
