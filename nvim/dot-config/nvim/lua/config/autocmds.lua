@@ -17,5 +17,9 @@ local set_autoformat = function(pattern, bool_val)
   })
 end
 
-set_autoformat({ "lua" }, true)
-set_autoformat({ "go" }, true)
+-- Not needed since format is enabled by default
+-- set_autoformat({ "lua" }, true)
+-- set_autoformat({ "go" }, true)
+
+-- Black is not everywhere, can be annoying in some codebases
+set_autoformat({ "python" }, false)
