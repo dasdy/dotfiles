@@ -34,6 +34,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
 " --- Custom settings ---
 " Use system clipboard"
 set clipboard+=unnamed
@@ -53,7 +54,13 @@ set ideajoin
 " set idearefactormode=keep
 set number relativenumber
 " set number
-set ignorecase 
+set ignorecase
+
+"let g:WhichKey_FontFamily = "Jetbrains Mono, monospace"
+let g:WhichKeyDesc_code = "<leader>c    +Code"
+let g:WhichKeyDesc_find = "<leader>f    +Find"
+let g:WhichKeyDesc_search  = "<leader>s +Search"
+
 " delete without yanking
 nnoremap <leader>d "_d
 
@@ -69,13 +76,26 @@ map <leader>h :noh<CR>
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \ to the formatting/refactoring stuff
+
+
+map <leader>ca <Action>(GotoAction)
 map <leader>cf <Action>(ReformatCode)
 map <leader>cr <Action>(Refactorings.QuickListPopupAction)
 map <leader>co <Action>(OptimizeImports)
 map <leader>db <Action>(ToggleLineBreakpoint)
 
+map <leader><leader> <Action>(GotoFile)
+map <leader>ff <Action>(GotoFile)
+map <leader>fr <Action>(RecentFiles)
+map <leader>fc <Action>(GotoClass)
+
+map <leader>ss <Action>(GotoSymbol)
+map <leader>sr <Action>(ReplaceInPath)
+map <leader>sg <Action>(FindInPath)
+
+map <leader>tr <Action>(RunClass)
+
 " various jumps ...
-nnoremap gs :action GotoSymbol<CR>
 nnoremap gi :action GotoImplementation<CR>
 nnoremap gt :action GotoTest<CR>
 nnoremap gp :action GotoSuperMethod<CR>
