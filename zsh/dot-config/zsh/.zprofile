@@ -1,7 +1,3 @@
-# TODO: figure out how to re-enable it, does not seem to be a way for it, only with warning
-# Right now the workaround is to use powerlevel10k
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
 export PATH=/opt/homebrew/bin:$PATH
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -50,6 +46,3 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 
 
-# >>> coursier install directory >>>
-export PATH="$PATH:/Users/opodze/Library/Application Support/Coursier/bin"
-# <<< coursier install directory <<<

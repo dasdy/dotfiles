@@ -27,6 +27,7 @@ pacman-contrib
 pavucontrol
 pre-commit
 rofi-wayland
+starship
 stern
 stow
 swaync
