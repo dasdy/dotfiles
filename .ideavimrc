@@ -61,8 +61,15 @@ let g:WhichKeyDesc_code = "<leader>c    +Code"
 let g:WhichKeyDesc_find = "<leader>f    +Find"
 let g:WhichKeyDesc_search  = "<leader>s +Search"
 
-" delete without yanking
+" delete/change without yanking
 nnoremap <leader>d "_d
+vnoremap <leader>dd "_d
+nnoremap D "_D
+vnoremap D "_D
+nnoremap c "_c
+vnoremap c "_c
+nnoremap C "_C
+vnoremap C "_C
 
 "" Move lines/blocks up/down
 nnoremap <A-j> :m .+1<CR>==
