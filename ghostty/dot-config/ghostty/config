@@ -13,3 +13,4 @@ window-padding-x = 10
 quit-after-last-window-closed = true
 window-save-state = never
 confirm-close-surface = false
+macos-option-as-alt = true
