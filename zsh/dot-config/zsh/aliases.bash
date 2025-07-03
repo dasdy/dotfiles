@@ -27,7 +27,6 @@ git-branch-cleanup() {
     git branch -D $(git branch -v | grep gone | tr -s ' ' | cut -f2 -d ' ')
 }
 
-
 kd() {
     kubectl describe "$1" "$(knm "$1" "$2")"
 }

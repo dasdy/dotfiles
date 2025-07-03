@@ -2,11 +2,9 @@
     defaultBranch = main
 
 [user]
+    # TODO: make this overridable per computer easily
     email = dasdeg@gmail.com
     name = Oleksandr Podze
-
-[alias]
-    up = pull --autostash
 
 [merge]
     tool = nvimdiff

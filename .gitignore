@@ -16,3 +16,4 @@ zsh/dot-config/zsh/.zsh_history
 zsh/dot-config/zsh/env-specific
 zsh/dot-config/zsh/oh-my-zsh
 lazygit/dot-config/lazygit/state.yml
+git/dot-config/git/gitk
