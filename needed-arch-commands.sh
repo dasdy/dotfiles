@@ -1,6 +1,5 @@
 #!/bin/env bash
 
-
 setup_paru() {
     sudo pacman -S --needed base-devel
     git clone https://aur.archlinux.org/paru.git
@@ -21,8 +20,11 @@ arch_mirrors() {
     curl -s $url | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 10 -
 }
 
-
 tldr_setup() {
     sudo pacman -S --needed tealdeer
     tldr --update
+}
+
+timeshift_cron_enable() {
+    systemctl enable --now cronie.service
 }

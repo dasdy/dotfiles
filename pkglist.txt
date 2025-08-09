@@ -5,6 +5,7 @@ btop
 docker
 docker-compose
 dolphin
+exfat-utils
 dunst
 eza
 fastfetch
@@ -21,6 +22,7 @@ hyprpaper
 jq
 lazygit
 neovim
+ntfs-3g
 obsidian
 okular
 pacman-contrib

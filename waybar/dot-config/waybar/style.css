@@ -5,35 +5,31 @@
   padding-right: 2px;
   padding-left: 2px;
   padding-bottom: 0px;
+
+  color: #cdd6f4;
+  background-color: #181824;
 }
 
 #waybar {
-  background: transparent;
   color: #c6d0f5;
-  margin: 2px 2px;
 }
 
 #workspaces {
   border-radius: 5px;
-  margin: 5px;
-  background: #101010;
   margin-left: 1rem;
 }
 
 #workspaces button {
   color: #babbf1;
-  border-radius: 5px;
   padding: 0.4rem;
 }
 
 #workspaces button.active {
   color: #99d1db;
-  border-radius: 5px;
 }
 
 #workspaces button:hover {
   color: #85c1dc;
-  border-radius: 5px;
 }
 
 #backlight,
@@ -47,40 +43,24 @@
 #window,
 #language,
 #custom-power {
-  background-color: #101010;
   padding: 0.5rem 1rem;
-  margin: 5px 0;
-}
-
-#window {
-  background-color: #101010;
-  border-radius: 5px;
 }
 
 #clock {
   color: #8caaee;
-  border-radius: 0px 5px 5px 0px;
   margin-right: 1rem;
 }
 
 #pulseaudio {
   color: #ea999c;
-  border-radius: 5px 0px 0px 5px;
   margin-left: 1rem;
 }
+
 #custom-lock {
-  border-radius: 5px 0px 0px 5px;
   color: #babbf1;
 }
 
 #custom-power {
   margin-right: 1rem;
-  border-radius: 5px;
   color: #e78284;
 }
-
-#language,
-#tray {
-  border-radius: 5px;
-}
-
