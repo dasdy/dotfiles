@@ -1,10 +1,23 @@
 [init]
     defaultBranch = main
 
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+[pull]
+	rebase = true
+
 [user]
     # TODO: make this overridable per computer easily
-    email = dasdeg@gmail.com
-    name = Oleksandr Podze
+	name = Oleksandr Podze
+	email = dasdeg@gmail.com
+
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
 
 [merge]
     tool = nvimdiff
