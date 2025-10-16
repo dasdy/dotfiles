@@ -62,8 +62,8 @@ envinit() {
         echo "poetry init"
         poetry shell -q 2 &>/dev/null
     fi
-    echo "jenv init"
-    jenv 2 &>/dev/null
+    # echo "jenv init"
+    # jenv 2 &>/dev/null
 }
 
 alias t="tmux-sessionizer"
