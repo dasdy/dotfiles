@@ -24,7 +24,14 @@ alias vim=nvim
 alias vi=nvim
 
 git-branch-cleanup() {
-    git branch -D $(git branch -v | grep gone | tr -s ' ' | cut -f2 -d ' ')
+    local branches
+    branches=$(git branch -v | grep gone | tr -s ' ' | cut -f2 -d ' ')
+
+    git branch -D "${branches[@]}"
+}
+
+knm() {
+    kubectl get "$1" | grep "$2" | sort | cut -f1 -d ' '
 }
 
 kd() {
@@ -32,7 +39,11 @@ kd() {
 }
 
 k-switch-context() {
-    kubectl config use-context $1
+    kubectl config use-context "$1"
+}
+
+k-list-context() {
+    kubectl config get-contexts
 }
 
 k-set-nm() {
@@ -45,14 +56,14 @@ pyenv() {
     eval "$(command pyenv init -)"
     eval "$(command pyenv init --path)"
     eval "$(command pyenv virtualenv-init -)"
-    pyenv $@
+    pyenv "${@}"
 }
 
 # lazy loading jenv so that it does not slow down startup
 jenv() {
     unset -f jenv
     eval "$(command jenv init -)"
-    jenv $@
+    jenv "${@}"
 }
 
 envinit() {
