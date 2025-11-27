@@ -4,7 +4,8 @@ font-family-bold = "Hack Nerd Font Mono"
 font-family-italic = "Hack Nerd Font Mono"
 font-family-bold-italic = "Hack Nerd Font Mono"
 font-size = 13
-theme = "Catppuccin Mocha"
+# theme = "Catppuccin Mocha"
+theme = "Rose Pine"
 cursor-style = block
 
 shell-integration-features = no-cursor

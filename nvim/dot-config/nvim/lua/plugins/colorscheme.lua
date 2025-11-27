@@ -4,5 +4,5 @@ return {
   { "ellisonleao/gruvbox.nvim", lazy = true },
   { "folke/tokyonight.nvim", lazy = true, opts = { style = "moon" }, name = "tokyonight" },
   -- This line actually sets colorscheme to one of the above
-  { "LazyVim/LazyVim", opts = { colorscheme = "catppuccin" } },
+  { "LazyVim/LazyVim", opts = { colorscheme = "rose-pine" } },
 }
