@@ -17,3 +17,4 @@ zsh/dot-config/zsh/env-specific
 zsh/dot-config/zsh/oh-my-zsh
 lazygit/dot-config/lazygit/state.yml
 git/dot-config/git/gitk
+hypr/dot-config/hypr/shaders
