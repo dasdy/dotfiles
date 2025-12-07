@@ -10,9 +10,10 @@ alias ls='eza $EZA_F'
 alias ll='eza -l $EZA_F'
 alias la='eza -a $EZA_F'
 alias lla='eza -la $EZA_F'
+alias k-pod='kubectl get pods | grep '
 
 alias cat='bat -p'
-alias fd='fd -H'
+# alias fd='fd -H'
 
 alias gg=lazygit
 
@@ -22,6 +23,9 @@ lt() {
 
 alias vim=nvim
 alias vi=nvim
+function knm-all() {
+    kubectl get "$1" -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}' | /usr/bin/grep "$2"
+}
 
 git-branch-cleanup() {
     local branches
