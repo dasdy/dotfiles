@@ -16,6 +16,7 @@ alias cat='bat -p'
 # alias fd='fd -H'
 
 alias gg=lazygit
+alias t="tmux-sessionizer"
 
 lt() {
     eza -alT --git-ignore $EZA_F -I'.git|node_modules|.mypy_cache|.pytest_cache|.venv' --color=always "$@" | less -R
@@ -23,7 +24,8 @@ lt() {
 
 alias vim=nvim
 alias vi=nvim
-function knm-all() {
+
+knm-all() {
     kubectl get "$1" -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}' | /usr/bin/grep "$2"
 }
 
@@ -34,20 +36,26 @@ git-branch-cleanup() {
     git branch -D "${branches[@]}"
 }
 
+# Get all entries of object type by regexp. for example:
+# knm pod myapp
+# will return all pods that match "myapp"
 knm() {
     kubectl get "$1" | grep "$2" | sort | cut -f1 -d ' '
 }
 
+# Describe objects that match regexp
+# kd pod myapp
+# will run describe on pods that match "myapp"
 kd() {
     kubectl describe "$1" "$(knm "$1" "$2")"
 }
 
-k-switch-context() {
-    kubectl config use-context "$1"
+kgctx() {
+    kubectl config get-contexts
 }
 
-k-list-context() {
-    kubectl config get-contexts
+k-set-context() {
+    kubectl config use-context "$1"
 }
 
 k-set-nm() {
@@ -63,22 +71,12 @@ pyenv() {
     pyenv "${@}"
 }
 
-# lazy loading jenv so that it does not slow down startup
-jenv() {
-    unset -f jenv
-    eval "$(command jenv init -)"
-    jenv "${@}"
-}
-
-envinit() {
-    echo "pyenv init"
-    pyenv 2 &>/dev/null
-    if [ -f pyproject.toml ]; then
-        echo "poetry init"
-        poetry shell -q 2 &>/dev/null
+# I keep forgetting aliases defined by plugins - this helps opening the installed plugin directory quickly
+# to read on their docs
+zsh-show-plugin() {
+    if [[ -f "${ZSH}/plugins/${1}/README.md" ]]; then
+        vim "${ZSH}/plugins/${1}/README.md"
+    else
+        vim "${ZSH}/plugins/${1}"
     fi
-    # echo "jenv init"
-    # jenv 2 &>/dev/null
 }
-
-alias t="tmux-sessionizer"

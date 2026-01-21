@@ -6,17 +6,18 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 export PYENV_ROOT=$XDG_DATA_HOME/pyenv
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
-export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export K9SCONFIG="$XDG_CONFIG_HOME"/k9s
+# Had some issues with changing docker home dir and
+# plugins (buildx cough cough) that just ignore that setting
+# and install themselves into different path.
+# export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 
 export GOBIN="$HOME/go/bin"
 
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$HOME/.jenv/bin:$PATH"
 
 export VISUAL=nvim
 export EDITOR=nvim
