@@ -24,7 +24,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker brew zsh-autosuggestions fzf zoxide rsync pip golang)
+plugins=(git docker brew zsh-autosuggestions fzf zoxide rsync pip golang rsync cp)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -50,3 +50,5 @@ done
 
 
 command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
+
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
