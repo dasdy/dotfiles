@@ -6,7 +6,7 @@ return {
         -- disable html formatter - it conflicts with templ
         templ = { "templ" },
       },
-      format = {
+      default_format_opts = {
         timeout_ms = 10000,
         lsp_fallback = true,
       },
