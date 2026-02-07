@@ -11,7 +11,7 @@ import sys
 import traceback
 from pathlib import Path
 
-RSYNC_ARGS = ["rsync", "-amuv", "--progress", "-h"]
+RSYNC_ARGS = ["rsync", "-armuv", "--progress", "-h"]
 
 
 def _as_rsync_dir(p: Path) -> str:
@@ -55,6 +55,28 @@ def ask_yes_no(prompt: str) -> bool:
         print("Please answer 'y' or 'n'.")
 
 
+def parse_index_ranges(raw_input: str) -> set[int]:
+    """Parse a string like '1-3, 5, 7' into a set of integers."""
+    res = set()
+    for part in raw_input.split(","):
+        part = part.strip()
+        if not part:
+            continue
+        if "-" in part:
+            try:
+                start_s, end_s = part.split("-", 1)
+                start, end = int(start_s), int(end_s)
+                res.update(range(start, end + 1))
+            except ValueError:
+                print(f"Warning: ignoring invalid range '{part}'")
+        else:
+            try:
+                res.add(int(part))
+            except ValueError:
+                print(f"Warning: ignoring invalid number '{part}'")
+    return res
+
+
 def get_args():
     parser = argparse.ArgumentParser(
         prog="rsync-dirs",
@@ -64,7 +86,8 @@ def get_args():
         ),
     )
     parser.add_argument(
-        "source_root", help="Source root directory (e.g. ~/Google Drive)",
+        "source_root",
+        help="Source root directory (e.g. ~/Google Drive)",
     )
     parser.add_argument("target_root", help="Target root directory (e.g. /Volumes/T7)")
     parser.add_argument(
@@ -112,6 +135,25 @@ def main(args: argparse.Namespace) -> int:
     if args.dry_run:
         print("Dry run enabled: not executing anything.")
         return 0
+
+    subset_prompt = input(
+        "Enter indices to **run** (e.g. '1-3, 7') or press Enter to keep all: "
+    ).strip()
+    if subset_prompt:
+        ranges = parse_index_ranges(subset_prompt)
+        # Filter (1-based index)
+        planned_cmds = [
+            cmd for i, cmd in enumerate(planned_cmds, start=1) if i in ranges
+        ]
+
+        if not planned_cmds:
+            print("All commands skipped. Exiting.")
+            return 0
+
+        print("\nRevised plan:\n")
+        for i, cmd in enumerate(planned_cmds, start=1):
+            print(f"{i}. {_quote_cmd(cmd)}")
+        print()
 
     if not ask_yes_no(f"Run these {len(planned_cmds)} rsync commands? [y/n]: "):
         print("Aborted.")
