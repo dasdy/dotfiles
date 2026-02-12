@@ -5,7 +5,11 @@
   "spacing": 0,
   "height": 26,
   "modules-left": ["custom/omarchy", "hyprland/workspaces"],
-  "modules-center": ["clock", "custom/update", "custom/screenrecording-indicator"],
+  "modules-center": [
+    "clock",
+    "custom/update",
+    "custom/screenrecording-indicator",
+  ],
   "modules-right": [
     "tray",
     "hyprland/language",
@@ -56,19 +60,19 @@
     "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
     "tooltip-format": "Omarchy update available",
     "signal": 7,
-    "interval": 3600
+    "interval": 3600,
   },
 
   "cpu": {
     "interval": 5,
     "format": "󰍛",
-    "on-click": "omarchy-launch-or-focus-tui btop"
+    "on-click": "omarchy-launch-or-focus-tui btop",
   },
   "clock": {
     "format": "{:%A, %B %d %H:%M}",
     "format-alt": "{:L%d %B W%V %Y}",
     "tooltip": false,
-    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
+    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
   },
   "network": {
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
@@ -76,12 +80,12 @@
     "format-wifi": "{icon}",
     "format-ethernet": "󰀂",
     "format-disconnected": "󰤮",
-    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)",
+    "tooltip-format-ethernet": "Connected",
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
-    "on-click": "omarchy-launch-wifi"
+    "on-click": "omarchy-launch-wifi",
   },
   "battery": {
     "format": "{capacity}% {icon}",
@@ -90,7 +94,7 @@
     "format-plugged": "",
     "format-icons": {
       "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
-      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     },
     "format-full": "󰂅",
     "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
@@ -99,26 +103,29 @@
     "on-click": "omarchy-menu power",
     "states": {
       "warning": 20,
-      "critical": 10
-    }
+      "critical": 10,
+    },
   },
   "bluetooth": {
+    "controller": "usb-dongle",
     "format": "",
     "format-disabled": "󰂲",
     "format-off": "󰂲",
     "format-connected": "󰂱",
     "format-no-controller": "",
-    "tooltip-format": "Devices connected: {num_connections}",
+    "tooltip-format": "{controller_alias}: {num_connections} devices connected",
     "on-click": "omarchy-launch-bluetooth",
   },
   "pulseaudio": {
     "format": "{icon}",
-    "on-click": "omarchy-launch-or-focus-tui wiremix",
+    "on-click": "omarchy-launch-audio",
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 5,
     "format-muted": "",
     "format-icons": {
+      "headphone": "",
+      "headset": "",
       "default": ["", "", ""],
     },
   },
@@ -142,12 +149,37 @@
   },
   "custom/expand-icon": {
     "format": " ",
-    "tooltip": false
+    "tooltip": false,
   },
   "custom/screenrecording-indicator": {
     "on-click": "omarchy-cmd-screenrecord",
     "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
     "signal": 8,
+    "return-type": "json",
+  },
+  "custom/voxtype": {
+    "exec": "omarchy-voxtype-status",
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+      "idle": "",
+      "recording": "󰍬",
+      "transcribing": "󰔟"
+    },
+    "tooltip": true,
+    "on-click-right": "omarchy-voxtype-config",
+    "on-click": "omarchy-voxtype-model"
+  },
+  "custom/idle-indicator": {
+    "on-click": "omarchy-toggle-idle",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/idle.sh",
+    "signal": 9,
+    "return-type": "json"
+  },
+  "custom/notification-silencing-indicator": {
+    "on-click": "omarchy-toggle-notification-silencing",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/notification-silencing.sh",
+    "signal": 10,
     "return-type": "json"
   },
   "tray": {
