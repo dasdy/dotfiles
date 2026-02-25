@@ -1,11 +1,64 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 
-sandbox="$HOME/sandbox"
+import subprocess
+from pathlib import Path
 
-# Capture zoxide database once
-zlist="$(zoxide query --list --score)"
+SANDBOX = Path.home() / "sandbox"
 
-find "$sandbox" "$HOME" -mindepth 1 -maxdepth 1 -type d | while read -r dir; do
-    score=$(printf '%s\n' "$zlist" | awk -v d="$dir" '$2==d {print $1}')
-    printf "%6s %s\n" "${score:-0}" "$dir"
-done | sort -nr
+
+def get_zoxide_scores():
+    """
+    Returns dict: {absolute_path_string: float_score}
+    """
+    result = subprocess.run(
+        ["zoxide", "query", "--list", "--score"],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+
+    scores = {}
+
+    for line in result.stdout.splitlines():
+        if not line.strip():
+            continue
+
+        # Format: "<score> <path>"
+        # Path may contain spaces → split only once
+        score_str, path = line.strip().split(maxsplit=1)
+        scores[path] = float(score_str)
+
+    return scores
+
+
+# on my machine, using `find` this way is faster than pathlib
+def list_dirs_pathlib(*base: Path):
+    result = subprocess.run(
+        ["find", *map(str, base), "-mindepth", "1", "-maxdepth", "1", "-type", "d"],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    return [Path(line) for line in result.stdout.splitlines() if line.strip()]
+
+
+def main():
+    scores = get_zoxide_scores()
+    dirs = list_dirs_pathlib(SANDBOX) + list_dirs_pathlib(Path.home())
+
+    output = []
+
+    for d in dirs:
+        path_str = str(d)
+        score = scores.get(path_str, 0.0)
+        output.append((score, path_str))
+
+    # Sort descending by score
+    output.sort(reverse=True, key=lambda x: x[0])
+
+    for score, path in output:
+        print(f"{score:6.1f} {path}")
+
+
+if __name__ == "__main__":
+    main()
