@@ -5,7 +5,6 @@ if [[ $# -eq 1 ]]; then
 else
     # fzf --info inline --nth 2.. --no-sort --query "$*" --bind 'enter:become:echo {2..}'
     selected=$(zlist | fzf --ansi --preview 'eza --tree --level 1 --color=always --group-directories-first {}' --preview-window right --info inline --nth 2.. --no-sort --query "$*" --bind 'enter:become:echo {2..}')
-    echo "Selected: $selected"
 fi
 
 if [[ -z $selected ]]; then
@@ -13,8 +12,10 @@ if [[ -z $selected ]]; then
 fi
 
 selected_name=$(basename "$selected" | tr . _)
-echo "Selected name: $selected_name"
 tmux_running=$(pgrep tmux)
+
+# track in zoxide that we've "moved" to the target directory.
+zoxide add "$selected"
 
 if [[ -z "${TMUX}" ]] && [[ -z $tmux_running ]]; then
     tmux new-session -s "$selected_name" -c "$selected"
