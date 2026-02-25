@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+sandbox="$HOME/sandbox"
+
+# Capture zoxide database once
+zlist="$(zoxide query --list --score)"
+
+find "$sandbox" "$HOME" -mindepth 1 -maxdepth 1 -type d | while read -r dir; do
+    score=$(printf '%s\n' "$zlist" | awk -v d="$dir" '$2==d {print $1}')
+    printf "%6s %s\n" "${score:-0}" "$dir"
+done | sort -nr
