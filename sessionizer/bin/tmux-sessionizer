@@ -3,6 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
+    # NOTE: `zlist` is my project, from separate repo, see https://github.com/dasdy/zlist
     selected=$(
         zlist | fzf --ansi \
             --preview 'eza --tree --level 1 --color=always --group-directories-first {}' \
