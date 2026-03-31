@@ -15,7 +15,7 @@ links-setup:
 
 .PHONY: brew-dump package-dump
 brew-dump:
-	brew bundle dump --file=./brew/Brewfile
+	brew bundle dump --file=./brew/Brewfile --all
 
 package-dump:
 	pacman -Qqent > pkglist.txt
