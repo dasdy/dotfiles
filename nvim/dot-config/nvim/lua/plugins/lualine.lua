@@ -65,6 +65,9 @@ return {
       -- Replace time with file type
       lualine_z = { "filetype" },
     },
-    extensions = { "neo-tree", "fzf" },
+    extensions = {
+      --     "neo-tree",
+      "fzf",
+    },
   },
 }
