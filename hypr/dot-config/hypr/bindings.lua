@@ -12,18 +12,23 @@
 -- To disable all preinstalled app/webapp bindings, set:
 --   omarchy_preinstalled_bindings = false
 
--- Add a new binding.
--- o.bind("SUPER + SHIFT + R", "SSH", "alacritty -e ssh your-server")
+-- Window switcher (was: focus next window / reveal active window on top).
+hl.unbind("ALT + TAB")
+o.bind("ALT + TAB", "Switch window", "walker-window-switcher")
 
--- Change an existing binding by unbinding it first, then binding the key again.
--- This example changes SUPER+SPACE from the launcher to the Omarchy root menu.
--- hl.unbind("SUPER + SPACE")
--- o.bind("SUPER + SPACE", "Omarchy menu", "omarchy-menu toggle root")
+-- Passwords with KeePassXC (was: 1Password).
+hl.unbind("SUPER + SHIFT + SLASH")
+o.bind("SUPER + SHIFT + SLASH", "Passwords", { launch = "keepassxc" })
 
--- Disable a default binding without replacing it.
--- hl.unbind("SUPER + SHIFT + B")
+-- Activity monitor on the key it used to live on.
+o.bind("SUPER + SHIFT + T", "Activity", { tui = "btop" })
 
--- Logitech MX Keys examples:
--- o.bind("SUPER + SHIFT + S", nil, "omarchy-capture-screenshot")
--- o.bind("SUPER + H", nil, "voxtype record toggle")
--- o.bind("SUPER + PERIOD", nil, "omarchy-shell shell toggle omarchy.emojis")
+-- Readwise Reader.
+o.bind("SUPER + SHIFT + R", "Readwise Reader", { webapp = "https://read.readwise.io/feed/unseen" })
+
+-- Web apps kept off deliberately.
+hl.unbind("SUPER + SHIFT + C") -- was: Calendar
+hl.unbind("SUPER + SHIFT + E") -- was: Email
+hl.unbind("SUPER + SHIFT + ALT + E") -- was: New email
+hl.unbind("SUPER + SHIFT + X") -- was: X
+hl.unbind("SUPER + SHIFT + ALT + X") -- was: X Post
