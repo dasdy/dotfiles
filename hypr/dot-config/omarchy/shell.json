@@ -37,7 +37,8 @@
             "nm-applet",
             "proton.vpn.app.gtk",
             "qBittorrent",
-            "chrome_status_icon_1"
+            "chrome_status_icon_1",
+            "steam"
           ],
           "hidden": []
         },
@@ -65,9 +66,13 @@
     "transparent": false
   },
   "idle": {
-    "lock": 300,
+    "lock": 86400,
     "screensaver": 150
   },
-  "plugins": [],
+  "plugins": [
+    {
+      "id": "dasd.display-off"
+    }
+  ],
   "version": 1
 }
