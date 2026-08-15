@@ -18,3 +18,10 @@ zsh/dot-config/zsh/oh-my-zsh
 lazygit/dot-config/lazygit/state.yml
 git/dot-config/git/gitk
 hypr/dot-config/hypr/shaders
+
+# Omarchy quattro (quickshell) — ~/.config/omarchy is stowed, so anything the
+# shell writes into it lands here. Keep the generated/stock bits out of git.
+hypr/dot-config/omarchy/backgrounds/
+hypr/dot-config/omarchy/**/*.sample
+hypr/dot-config/omarchy/current/
+*.omarchy-upgrade-to-*.bak

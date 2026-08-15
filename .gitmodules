@@ -1,0 +1,4 @@
+[submodule "hypr/dot-config/omarchy/themes/rose-pine-dark"]
+	path = hypr/dot-config/omarchy/themes/rose-pine-dark
+	url = https://github.com/guilhermetk/omarchy-rose-pine-dark
+	ignore = untracked
