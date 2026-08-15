@@ -3,8 +3,8 @@ font-family = "Hack Nerd Font Mono"
 font-family-bold = "Hack Nerd Font Mono"
 font-family-italic = "Hack Nerd Font Mono"
 font-family-bold-italic = "Hack Nerd Font Mono"
-font-size = 13
 # theme = "Catppuccin Mocha"
+font-size = 10
 theme = "Rose Pine"
 cursor-style = block
 
@@ -15,3 +15,9 @@ quit-after-last-window-closed = true
 window-save-state = never
 confirm-close-surface = false
 macos-option-as-alt = true
+
+# Slowdown mouse scrolling
+mouse-scroll-multiplier = 0.95
+
+# Fix general slowness on hyprland (https://github.com/ghostty-org/ghostty/discussions/3224)
+async-backend = epoll
